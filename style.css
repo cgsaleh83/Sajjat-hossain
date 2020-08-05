@@ -345,6 +345,9 @@ header .navbar ul li a.active::before{
 	flex: 0 0 33.33%;
 	max-width: 33.33%;
 }
+.about-me .about-content .img:hover{
+	transform: translateZ(50px) scaleY(1);
+}
 .about-me .about-content .img img{
 	width: 100%;
 	display: block;
@@ -579,6 +582,7 @@ header .navbar ul li a.active::before{
 	height: 100%;
 	display: block;
 }
+
 
 .skills .skills-content .section-title p{
 	font-size: 15px;
