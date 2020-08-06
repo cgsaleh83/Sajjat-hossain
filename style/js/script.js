@@ -3,29 +3,30 @@
 
 //gellary item
 
-const filterButtons = document.querySelector("#filter-btns").children;
-const items = document.querySelector(".protfolio-gellery").children;
+const filterButtons=document.querySelector("#filter-btns").children;
+const items=document.querySelector(".protfolio-gellery").children;
 
 
-for (let i = 0; i < filterButtons.length; i++) {
-	filterButtons[i].addEventListener("click", function () {
-		for (let j = 0; j < filterButtons.length; j++) {
-			filterButtons[j].classList.remove("active")
-		}
-		this.classList.add("active");
-		const target = this.getAttribute("data-target")
+ for(let i=0; i<filterButtons.length; i++){
+ 	filterButtons[i].addEventListener("click",function(){
+ 		for(let j=0; j<filterButtons.length; j++){
+ 			filterButtons[j].classList.remove("active")
+ 		}
+ 		this.classList.add("active");
+ 		const target=this.getAttribute("data-target")
 
-		for (let k = 0; k < items.length; k++) {
-			items[k].style.display = "none";
-			if (target == items[k].getAttribute("data-id")) {
-				items[k].style.display = "block";
-			}
-			if (target == "all") {
-				items[k].style.display = "block";
-			}
-		}
-	})
-} 
+ 		for(let k=0; k<items.length; k++){
+ 			items[k].style.display="none";
+ 			if(target==items[k].getAttribute("data-id"))
+ 			{
+ 				items[k].style.display="block";
+ 			}
+ 			if(target=="all"){
+ 				items[k].style.display="block";
+ 			}
+ 		}
+ 	})
+ } 
  
  //light box item
 
@@ -35,7 +36,7 @@ const lightbox=document.querySelector(".lightbox");
 const lightboxImage=lightbox.querySelector("img")
 
 	lightbox.addEventListener("click",function(){
-		if(evevt.target!=lightboxImage){
+		if(event.target!=lightboxImage){
 			lightbox.classList.remove("show");
 			lightbox.classList.add("hide");
 		}
@@ -186,55 +187,17 @@ const navbar = document.querySelector(".navbar");
 const hamBurger=document.querySelector(".ham-burger");
 
 
-// hamBurger.addEventListener("click",function(){
-// 	document.querySelector(".navbar").classList.toggle("show");
-// })
-
+hamBurger.addEventListener("click",function(){
+	document.querySelector(".navbar").classList.toggle("show");
+})
 
 
 $(document).mousemove(function (e) {
 	$('.cursor').css({ left: e.pageX, top: e.pageY });
-	
+
 })
 
-	AOS.init({
-		offset: 400,
-		duration: 1000
-	});
-
-
-	//------------------------ bubble section
-
-	function createCircle() {
-            const section = document.querySelector('section')
-            const circleEl = document.createElement('aside')
-            var size = Math.random() * 90;
-            var duration = Math.random() * 10;
-            circleEl.style.width = 20 + size+'px';
-            circleEl.style.height = 20 + size+'px';
-            circleEl.style.left = Math.random() * innerWidth + "px";
-            section.appendChild(circleEl);
-
-            setTimeout(() => {
-		circleEl.remove()
-	}, 4000)
-        }
-
-	 setInterval(createCircle, 50);
-
-	//------------------------ Contact section
-
-function sendEmail() {
-	Email.send({
-		Host: "cgsaleh83@gmail.com",
-		Username: "<sender’s email address>",
-		Password: "<email password>",
-		To: '<recipient’s email address>',
-		From: "<sender’s email address>",
-		Subject: "<email subject>",
-		Body: "<email body>",
-	})
-		.then(function (message) {
-			alert("mail sent successfully")
-		});
-}
+AOS.init({
+	offset: 400,
+	duration: 1000
+});
